@@ -6,7 +6,7 @@
 if Chef::Config[:solo]
   	Chef::Log.warn("This recipe uses search. Chef Solo does not support search.")
 else
-	log_server = search(:node, "recipes:graylog2").first
+	log_server = search(:node, "recipes:graylog2\\:\\:server").first
 end
 
 if log_server
@@ -23,7 +23,7 @@ if log_server
   chef_handler "Chef::GELF::Handler" do
     source "chef/gelf"
     arguments({
-      :server => log_server['fqdn']
+      :server => log_server['ipaddress']
     })
 
     supports :exception => true, :report => true
