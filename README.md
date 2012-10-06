@@ -83,10 +83,17 @@ json_file
 
 Leverages the `chef_handler` LWRP to automatically register the `Chef::Handler::JsonFile` handler that ships as part of Chef. This handler serializes the run status data to a JSON file located at `/var/chef/reports`.
 
+gelf
+----
+
+Uses the `chef_handler` LWRP and search to enable logging of chef runs to a graylog2 server. The server is dynamically searched via `recipes:graylog2\\:\\:server`. This recipe is a no-op for Chef Solo.
+
+
 License and Author
 ==================
 
 Author:: Seth Chisamore (<schisamo@opscode.com>)
+Author:: Klaus Alfert (<klaus.alfert@googlemail.com>)
 
 Copyright:: 2011, Opscode, Inc
 
